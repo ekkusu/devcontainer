@@ -1,0 +1,51 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+	"name": "debian",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": { "VARIANT": "bookworm" }
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+	"common": {
+        "installZsh": true,
+        "installOhMyZsh": true,
+        "upgradePackages": true,
+        "nonFreePackages": false
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+					"version": "latest",
+					"enableNonRootDocker": "true"
+	}
+	
+},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [3000, 3030],
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "vscode",
+
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"workbench.colorTheme": "Catppuccin Macchiato"
+	},
+			"extensions": [
+				"Catppuccin.catppuccin-vsc",
+				"ms-azuretools.vscode-docker",
+				"esbenp.prettier-vscode",
+				"PKief.material-icon-theme",
+				"redhat.vscode-yaml",
+				"p1c2u.docker-compose",
+				"formulahendry.docker-extension-pack",
+				"oderwat.indent-rainbow"
+			]
+		}
+	}
+}
